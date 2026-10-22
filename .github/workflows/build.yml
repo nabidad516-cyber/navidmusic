@@ -24,6 +24,11 @@ jobs:
       - name: Build web
         working-directory: ${{ env.APP_DIR }}
         run: npm run build
+      - name: Capacitor config
+        working-directory: ${{ env.APP_DIR }}
+        run: |
+          rm -f capacitor.config.ts
+          echo '{"appId":"com.navid.music","appName":"Navid Music","webDir":"dist","backgroundColor":"#0b0f19"}' > capacitor.config.json
       - name: Add Android
         working-directory: ${{ env.APP_DIR }}
         run: npx cap add android
