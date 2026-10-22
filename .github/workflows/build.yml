@@ -20,7 +20,7 @@ jobs:
           echo "APP_DIR=$D" >> $GITHUB_ENV
       - name: Install
         working-directory: ${{ env.APP_DIR }}
-        run: npm install --no-audit --no-fund
+        run: npm install --no-audit --no-fund --legacy-peer-deps
       - name: Build web
         working-directory: ${{ env.APP_DIR }}
         run: npm run build
